@@ -10,7 +10,7 @@
 dist:project :release dist:v_0-001 .
 dist:v_0-001
 	a               :Version ;
-	dc:issued       "2011-11-17"^^xsd:date ;
+	dc:issued       "2011-11-23"^^xsd:date ;
 	:revision       "0.001"^^xsd:string ;
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/MooseX-RoleFor-0.001.tar.gz> ;
 	rdfs:label      "Initial release" .

@@ -7,7 +7,7 @@ use utf8;
 BEGIN
 {
 	$MooseX::RoleFor::AUTHORITY = 'cpan:TOBYINK';
-	$MooseX::RoleFor::VERSION   = '0.000_01';
+	$MooseX::RoleFor::VERSION   = '0.001';
 }
 
 use Moose::Exporter;
@@ -95,12 +95,20 @@ restriction.
 Please report any bugs to
 L<http://rt.cpan.org/Dist/Display.html?Queue=MooseX-RoleFor>.
 
+=head2 Known
+
+When misapplying a role to an instance (rather than a class),
+you get not one warning, but two: one for the object, and one
+for its metaclass.
+
 =head1 SEE ALSO
 
 L<Moose>,
 L<Moose::Meta::Role>.
 
 L<MooseX::RoleFor::Meta::Role::Trait::RoleFor> - internals.
+
+L<MooseX::RoleFor::Declare> - extra MooseX::Declare hooks.
 
 =head1 AUTHOR
 
