@@ -19,13 +19,13 @@ use namespace::autoclean;
 has role_is_for => (
 	is      => 'rw',
 	isa     => 'Undef|Str|ArrayRef[Str]',
-	);
+);
 
 has role_misapplication_consequence => (
 	is      => 'rw',
 	isa     => enum([qw/croak carp/]),
 	default => 'carp',
-	);
+);
 
 before apply => sub
 {
@@ -48,7 +48,7 @@ before apply => sub
 	my $compliance = 0;
 	TARGET: foreach (@targets)
 	{
-		if ($applying_to->isa($_))
+		if ($applying_to->DOES($_))
 		{
 			$compliance = 1;
 			last TARGET;
@@ -57,29 +57,30 @@ before apply => sub
 	
 	return if $compliance;
 	
-	my $message = sprintf("Role '%s' must only be applied to classes %s (not '%s')",
+	my $message = sprintf(
+		"Role '%s' must only be applied to classes %s (not '%s')",
 		$meta->name,
 		(join '|', map {"'$_'"} @targets),
 		(ref $applying_to || $applying_to),
-		);
-
+	);
+	
 	foreach (keys %INC)
 	{
 		s{\.pm$}{};
 		s{[/\\]}{::}g;
 		$Carp::Internal{$_}++ if /^(?:Class::MOP|Moose|MooseX)\b/
-   }
+	}
 	
 	$meta->role_misapplication_consequence eq 'croak'
 		? croak($message)
 		: carp($message);
-
+	
 	foreach (keys %INC)
 	{
 		s{\.pm$}{};
 		s{[/\\]}{::}g;
 		$Carp::Internal{$_}-- if /^(?:Class::MOP|Moose|MooseX)\b/
-   }	
+	}	
 };
 
 'Yay!';
@@ -100,7 +101,7 @@ This trait provides two attributes:
 
 An arrayref of class names, or a single class name as a string,
 or undef. Indicates which classes this role may be composed
-with.
+with. (Actually these may be classes B<< or roles >>!)
 
 =item C<< role_misapplication_consequence >>
 
@@ -127,7 +128,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2011 by Toby Inkster.
+This software is copyright (c) 2011-2012 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

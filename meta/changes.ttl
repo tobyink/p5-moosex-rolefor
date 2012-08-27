@@ -7,11 +7,22 @@
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
+dist:project :release dist:v_0-000_01 .
+dist:v_0-000_01
+	a               :Version ;
+	dc:issued       "2011-11-18"^^xsd:date ;
+	:revision       "0.000_01"^^xsd:string ;
+	rdfs:label      "Preview release" .
+
 dist:project :release dist:v_0-001 .
 dist:v_0-001
 	a               :Version ;
-	dc:issued       "2011-11-23"^^xsd:date ;
-	:revision       "0.001"^^xsd:string ;
-	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/MooseX-RoleFor-0.001.tar.gz> ;
-	rdfs:label      "Initial release" .
+        dc:issued	"2012-08-27"^^xsd:date ;
+        :revision	"0.001"^^xsd:string ;
+        :file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/MooseX-RoleFor-0.001.tar.gz> ;
+        rdfs:label	"Public release" ;
+	dcs:changeset [
+		dcs:item [ rdfs:label "Allow the role_for() function to accept roles; not just classes." ];
+		dcs:item [ rdfs:label "Added test cases." ];
+	].
 
