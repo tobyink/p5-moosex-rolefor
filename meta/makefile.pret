@@ -1,0 +1,13 @@
+@prefix deps:  <http://ontologi.es/doap-deps#> .
+
+<http://purl.org/NET/cpan-uri/dist/MooseX-RoleFor/project>
+	deps:runtime-requirement         [ deps:on "Moose::Exporter"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "Moose::Role"^^deps:CpanId ];
+	deps:runtime-requirement         [
+		deps:on "Moose::Util::TypeConstraints"^^deps:CpanId;
+	];
+	deps:runtime-requirement         [ deps:on "Carp"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "Scalar::Util"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "namespace::autoclean"^^deps:CpanId ];
+	deps:test-requirement            [ deps:on "Test::More 0.61"^^deps:CpanId ].
+
