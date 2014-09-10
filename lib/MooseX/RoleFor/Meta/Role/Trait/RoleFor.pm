@@ -7,7 +7,7 @@ use utf8;
 BEGIN
 {
 	$MooseX::RoleFor::Meta::Role::Trait::RoleFor::AUTHORITY = 'cpan:TOBYINK';
-	$MooseX::RoleFor::Meta::Role::Trait::RoleFor::VERSION   = '0.001';
+	$MooseX::RoleFor::Meta::Role::Trait::RoleFor::VERSION   = '0.002';
 }
 
 use Moose::Role;

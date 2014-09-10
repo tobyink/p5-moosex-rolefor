@@ -26,3 +26,10 @@ dist:v_0-001
 		dcs:item [ rdfs:label "Added test cases." ];
 	].
 
+
+`MooseX-RoleFor 0.002 cpan:TOBYINK`
+	issued    2014-09-10;
+	changeset [
+		item "Switch to Dist::Inkt."^^Packaging;
+	].
+
